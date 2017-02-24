@@ -1,0 +1,63 @@
+\section{Геометрические принципы ТФКП}
+
+\begin{definition}
+Пусть $a \in \CC, f \in \A(U'(a)), f(z) ≠ 0 \text{ в } U'(a)$. Тогда есть $ \res_a \frac{f'(z)}{f(z)} =: \Lres_a f$ — логарифмический вычет функции $f$ в точке $a$.
+\end{definition}
+
+\begin{example}
+	\[ \Lres_0 \exp{\frac{1}{z}} = \res_0 \frac{-\frac{1}{z^2}\exp{\frac{1}{z}}}{\exp{\frac{1}{z}}} = \res_0\left(-\frac{1}{z^2}\right) = 0 \]
+	У $\exp{\frac{1}{z}}$ в $0$ существует особенность.
+\end{example}
+
+\begin{exercise}
+	Если $\Lres_a f$ существует, то это целое число.
+\end{exercise}
+
+\begin{theorem}
+	Пусть $a \in \CC$ — 
+	\begin{mylist}
+		\item ноль $f$ порядка $n \geq 0$,
+		\item полюс $f$ порядка $p \geq 1$,
+	\end{mylist}
+тогда
+	\begin{mylist}
+		\item $\Lres_a f = n$,
+		\item $\Lres_a f = -p$.
+	\end{mylist}
+\end{theorem}
+\begin{proof} ~\\
+	\begin{enumerate}
+		\item По теореме о нулях $f(z) = (z-a)^n g(z), g \in \A(U(a)), g ≠0 \text{ в } U(a)$.
+		\[ f'(z) = n (z - a)^{n-1} g(z) + (z - a)^n g'(z) \]
+		\[ \frac{f'(z)}{f(z)} = \frac{n}{z - a} + \frac{g'(z)}{g(z)} \]
+		Но $\res \frac{g'(z)}{g(z)} = 0$ (т.к. она голоморфна), $ \res \frac{n}{z - a} = n$.
+		\item В полюсах аналогично, только там $\frac{g(z)}{(z-a)^p}$
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}[О логарифмических вычетах]
+	Пусть $D$ — допустимая область в $\CC$, $f$ мероморфна в окрестности $\bar D$, причём на $\bnd D$ нет ни нулей, ни полюсов $f$.
+	(Уменьшая окрестность, можно сделать число нулей и полюсов в ней конечным. По определению мероморфности все нули и полюса изолированные).
+	Пусть $a_1, \ldots, a_J$ — различные нули $f$ в $D$ порядков $n_1, \ldots, n_J$, а $b_1, \ldots, b_M$ — различные полюса $f$ в $D$ порядков $p_1, \ldots, p_M$.
+	Обозначим $N_D = \sum_{j=1}^{J} n_j$ — общий порядок нулей $f$ в $D$, $P_D = \sum_{m=1}^{M} p_m$ — общий порядок полюсов $f$ в $D$.
+	
+	Тогда $\frac{1}{2 \pi \im} \int_{\bndp D} \frac{f'(z)}{f(z)} \dif z = N_D(f) - P_D(f)$.
+\end{theorem}
+\begin{proof}
+	По теореме Коши о вычетах $2 \pi \im(\sum \text{вычетов})$, далее по предыдущей теореме.
+\end{proof}
+
+\begin{definition}
+	Пусть $\gamma^+: \intcc{\alpha, \beta} \to \CC$ — путь. Пусть $f: [\gamma] \to \CC_*$ (т. е. $f ≠ 0$ на $[\gamma]$), $f \in C([\gamma])$. Определим $\DArg{f \circ \gamma^+} w =: \DArg{\gamma^+} f$ — приращение полярного аргумента функции $f$ вдоль $\gamma^+$.
+\end{definition}
+
+\begin{exercise}
+	Если $\gamma_1 ≈ \gamma_2$ (два пути эквивалентны), то
+		\[ \DArg{\gamma_1^+} f = \DArg{\gamma_2^+} f \] (для любой функции $f$).
+	
+	Следовательно, $\DArg{\gamma^+} f$ можно определить для любой кривой.
+\end{exercise}
+
+\begin{exercise}
+	Если $f_1$ и $f_2$ непрерывны и отличны от $0$ на $[\gamma]$, то $\DArg{\gamma^+} (f_1 f_2) = \DArg{\gamma^+} f_1 + \DArg{\gamma^+} f_2$.
+\end{exercise}
