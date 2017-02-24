@@ -1,0 +1,36 @@
+\documentclass[a4paper,10pt,fleqn]{article}
+\usepackage[margin=1in]{geometry}
+%\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{unicode-math}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage[inline]{enumitem}
+
+\title{Лекции по ТФКП}
+%\author{Парамонов П. В.}
+\author{}
+\date{}
+
+\setmainfont{Nimbus Roman}
+\setmathfont{xits-math.otf}
+%\setmathfont{FreeSerif}
+%\setmathfont{xits-math.otf}[range={\mathopen,\mathclose}]
+%\setmathfont{FreeSerif}
+\setdefaultlanguage{russian}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{Лекция \thesection}{1em}{}
+\everymath{\displaystyle}
+
+\input{operators}
+\input{environments}
+
+\begin{document}
+	\input{last-minute-style}
+	\maketitle
+	\include{lecture1}
+\end{document}
