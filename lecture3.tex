@@ -1,0 +1,39 @@
+\section{Геометрические принципы ТФКП (продолжение)}
+
+\begin{lemma}
+	Пусть $\gamma: \intcc{\alpha, \beta} \to \CC$ — замкнутый спрямляемый путь. Пусть $U = U([\gamma])$ — (связная) окрестность носителя $\gamma$. Пусть $f \in \A(U), f(z) ≠ 0 \forall z \in [\gamma]$.
+
+	Тогда $\frac{1}{2 \pi \im} \int_{\gamma} \frac{f'(z)}{f(z)} \dif z = \frac{1}{2 \pi} \DArg{\gamma} f$.
+\end{lemma}
+\begin{proof}
+	Разобьём $\intcc{\alpha, \beta}$ на очень маленькие последовательные отрезки $\intcc{\alpha_{n-1}, \alpha_n}, n = 1, \ldots, N$, так, чтобы для всех $n$ $[\sigma_n] = f([\gamma_n])$ лежал в одной из стандартных полуплоскостей $\PR, \PL, \PP, \PM$; здесь $\gamma_n = \gamma\eval_{\intcc{\alpha_{n-1}, \alpha_n}}$, $\sigma_n = f \circ \gamma_n$, $\DArg{\gamma} f = \DArg{\sigma} w$.
+
+	Пусть $U_n$ — такая (связная) окрестность $[\gamma_n]$, что $f \in \A(U_n)$ и $f(U_n)$ лежит в той же полуплоскости, что и $\sigma_n$. Выберем какую-либо ветвь $\ln_\br{n} z = \ln \abs z + \im \arg_\br{n} z$ в $U_n$. Тогда $\ln_\br{n} f(z) \in \A(U_n)$ \implies $\int_{\gamma_n^+} \frac{f'(z)}{f(z)} \dif z = \int_{\gamma_n^+} \dif \left(\ln_\br{n} f(z) \right) = \ln_\br{n} f(\gamma_n(t)) \eval_{\alpha_{n-1}}^{\alpha_n} = \ln \abs{f(\gamma_n(t))} \eval_{\alpha_{n-1}}^{\alpha_n} + \im \arg_\br{n} f(\gamma_n(t)) \eval_{\alpha_{n-1}}^{\alpha_n}$.
+	
+	Просуммируем по $n = 1, \ldots, N$. Все логарифмы сократятся, т. к. путь замкнут. А сумма последних слагаемых даст $\DArg{\gamma} f$ (так как $\arg_\br{n} f(\gamma_n(t))\eval_{\alpha_{n-1}}^{\alpha_n} = \DArg{\gamma_n} f$).
+
+	Итого $\int_{\gamma} \frac{f'(z)}{f(z)} \dif z = \im \DArg{\gamma} f$. Делим на $2 \pi \im$.
+\end{proof}
+
+\begin{theorem}[Принцип аргумента]
+	В условиях теоремы о логарифмических вычетах справедлива формула
+	\[ N_D(f) - P_D(f) = \frac{1}{2 \pi} \DArg{\bndp D} f \]
+\end{theorem}
+\begin{proof}
+	Пусть $D$ — допустимая, $\bndp D = \Gamma_1^+ \sqcup \Gamma_2^- \sqcup \ldots \sqcup \Gamma_S^-$.
+	$\DArg{\bndp D} f = \DArg{\Gamma_1^+} f - \sum_{s = 2}{S} \DArg{\Gamma_s^+} f$ по определению приращения аргумента вдоль цепи кривых.
+	
+	Остаётся воспользоваться теоремой о логарифмических вычетах ($f$ голоморфна в окрестности каждой $\Gamma_s$) и предыдущей теоремой.
+
+	\[ N_s(f) - P_s(f) = \int_{\Gamma_s^+} \frac{f'(z)}{f(z)} \dif z = \frac{1}{2 \pi} \DArg{\Gamma_s^+} f \]
+\end{proof}
+\begin{note}
+	Принцип аргумента остаётся верным в следующих более общих условиях:
+
+	Пусть $D$ — область в $\CC$, ограниченная конечным числом попарно непересекающихся замкнутых жордановых кривых (не обязательно спрямляемых), $f$ голоморфна в $D$ за исключениеем конечного числа полюсов $\set{b_1, \ldots, b_M} \subset D$, $f$ непрерывна в $\bar D \setminus \set{b_1, \ldots, b_M}$, $f ≠ 0$ на $\bnd D$.
+	
+	Тогда $ N_D(f) - P_D(f) = \frac{1}{2 \pi} \DArg{\bndp D} f $.
+\end{note}
+\begin{exercise*}
+	Доказать это утверждение, если дополнительно $f$ голоморфна в окрестности $\bnd D$.
+\end{exercise*}
