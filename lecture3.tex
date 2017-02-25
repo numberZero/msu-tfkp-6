@@ -30,10 +30,61 @@
 \begin{note}
 	Принцип аргумента остаётся верным в следующих более общих условиях:
 
-	Пусть $D$ — область в $\CC$, ограниченная конечным числом попарно непересекающихся замкнутых жордановых кривых (не обязательно спрямляемых), $f$ голоморфна в $D$ за исключениеем конечного числа полюсов $\set{b_1, \ldots, b_M} \subset D$, $f$ непрерывна в $\bar D \setminus \set{b_1, \ldots, b_M}$, $f ≠ 0$ на $\bnd D$.
+	Пусть $D$ — область в $\CC$, ограниченная конечным числом попарно непересекающихся замкнутых жордановых кривых (не обязательно спрямляемых), $f$ голоморфна в $D$ за исключениеем конечного числа полюсов $\set{b_1, \ldots, b_M} \subset D$, $f$ непрерывна в $\overline D \setminus \set{b_1, \ldots, b_M}$, $f ≠ 0$ на $\bnd D$.
 	
 	Тогда $ N_D(f) - P_D(f) = \frac{1}{2 \pi} \DArg{\bndp D} f $.
 \end{note}
 \begin{exercise*}
 	Доказать это утверждение, если дополнительно $f$ голоморфна в окрестности $\bnd D$.
 \end{exercise*}
+
+\begin{theorem}[теорема Руше́]
+	Пусть $D$ — допустимая область в $\CC$, $f$ и $g$ голоморфны в окрестности $\overline D$, причём $\abs{g(z)} < \abs{f(z)} \forall z \in \bnd D$. Тогда $N_D (f+g) = N_D f$.
+\end{theorem}
+\begin{proof}
+	Очевидно $f ≠ 0$ на $D$, тогда $f + g ≠ 0$ на $D$.
+
+	По принципу аргумента
+	\[ N_D (f+g)
+	= \frac{1}{2 \pi} \DArg{\bndp D} (f + g)
+	= \frac{1}{2 \pi} \DArg{\bndp D} \left(f \left(1 + \frac{g}{f}\right) \right)
+	= \frac{1}{2 \pi} \DArg{\bndp D} f + \frac{1}{2 \pi} \DArg{\bndp D} \left(1 + \frac{g}{f}\right) \]
+	Но $\frac{1}{2 \pi} \DArg{\bndp D} f = N_D(f)$, остаётся доказать, что $\DArg{\bndp D} \left(1 + \frac{g}{f}\right) = 0$.
+
+	Пусть $\bndp D = \Gamma_1^+ \sqcup \Gamma_2^- \sqcup \ldots \sqcup \Gamma_S^-$. Пусть $\gamma_s^-$ — параметризация $\Gamma_s^-$ на $\intcc{\alpha_s, \beta_s}$. Достаточно доказать, что $\DArg{\gamma_s^-}\left(1 + \frac{g}{f} \right) = 0$.
+
+	\[ \DArg{\gamma_s^-}\left(1 + \frac{g}{f} \right) = \DArg{\left(1 + \frac{g}{f} \right) \circ \gamma_s^-} w \]
+	где $\sigma_s = \left(1 + \frac{g}{f} \right) \circ \gamma_s^- $
+
+	$\sigma_s$ — замкнутый путь, $\abs{\frac{g}{f}} < 1$ \implies $1 + \frac{g}{f}$ всегда в $\PP$. Поэтому в качестве $\phi_s(t)$ можно взять $\arg \sigma_s(t)$ (главный аргумент). И тогда получится, что $\DArg{\left(1 + \frac{g}{f} \right) \circ \gamma_s^-} w = \phi_s(\beta_s) - \phi_s(\alpha_s) = \arg{\cdotp}- \arg{\cdotp} = 0$.
+\end{proof}
+\begin{note}
+	Теорема Руше́ верна в более общих условиях, как в принципе аргумента:
+	$f \in \A(D), f \in C(\overline D)$.
+\end{note}
+\begin{example}
+	Найти число нулей (с учётом кратности) многочлена $P(z) = z^7 + 4 z + 1$ в кольце $\setw{z}{1 < \abs{z} < 2}$.
+	\begin{enumerate}
+		\item Рассмотрим $D_2 = \setw{z}{\abs{z} < 2}$. Рассмотрим $f_2(z) = z^7$, $g_2(z) = 4 z + 1$.
+		\[\abs{g_2(z)} < \abs{f_2(z)} \forall z \in \bnd D_2 \quad (\abs{z} = 2)\]
+		По теореме Руше $N_{D_2}(P) = N_{D_2}(f_2 + g_2) = N_{D_2}(f_2) = 7$.
+		\item Аналогично для $D_1 = \setw{z}{\abs{z} < 1}$ рассмотрим $f_1(z) = 4 z$, $g_1(z) = z^7 + 1$, получим $N_{D_1}(P) = 1$.
+		\item $N_{D_2 \setminus \overline D_1} = 7 - 1 = 6$.
+	\end{enumerate}
+\end{example}
+
+\begin{theorem}[Принцип сохранения области]
+	Пусть $D$ — произвольная область в $\CC$, $f \in \A(D)$, $f \nequiv \const$. Тогда $\Omega = f(D)$ — область в $\CC$.
+\end{theorem}
+\begin{proof}
+	Связность $\Omega$ очевидна. Нужно доказать открытость.
+
+	Пусть $w_0 \in \Omega$. Тогда $\exists z_0 \in D: f(z_0) = w_0$. Докажем, что $w_0 \in \Omega$ вместе с некоторым кружком.
+
+	Рассмотрим функцию $f(z) - w_0 \neq \const$. $z_0$ — её изолированный ноль \implies $\exists \delta > 0: f \in \A(\text{окрестность} \overline{B(z_0, \delta)})$, $\overline{B(z_0, \delta)} \subset D$, $\min_{\abs{z - z_0} = \delta} \abs{f(z) - w_0} = \eps > 0$. Достаточно доказать, что $B(w_0, \eps) \subset \Omega$.
+
+	Фиксируем любое $w \in B(w_0, \eps)$. В области $B(z_0, \delta) = B_\delta$ применим теорему Руше к функциям $f_1(z) = f(z) - w_0$, $g_1(z) = w_0 - w$ (постоянная).
+	\[\abs{g_1(z)} < \eps \leq \abs{f_1(z)} \forall z \in \bnd B_\delta \]
+	Поэтому $N_{B_\delta} (f(z) - w) = N_{B_\delta} (f_1(z) + g_1(z)) = N_{B_\delta} (f_1(z)) \geq 1$.
+	Значит, в $B_\delta$ $f$ принимает значение $w$ ($\exists z \in B_\delta: f(z) = w \in \Omega$).
+\end{proof}
