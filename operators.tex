@@ -6,6 +6,9 @@
 \newcommand{\RR}{\mathbb R}
 \newcommand{\CC}{\mathbb C}
 
+\newcommand{\CRR}{\overline{\mathbb R}}
+\newcommand{\CCC}{\overline{\mathbb C}}
+
 % Some stuff
 \newcommand{\im}{i}
 \renewcommand{\eval}{\Big\vert}
@@ -24,10 +27,17 @@
 \DeclareMathOperator*{\res}{res}
 \DeclareMathOperator*{\Lres}{Lres}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\dist}{dist}
 
 \newcommand{\DArg}[1]{\Delta_{#1} \Arg}
 \renewcommand{\exp}[1]{{\operatorname{e}}^{#1}}
 \newcommand{\setw}[2]{\set{#1 \colon #2}}
 \newcommand{\br}[1]{{(\text{в}_{#1})}}
-\newcommand{\bnd}{\partial\!}
-\newcommand{\bndp}{\partial^+\!}
+\newcommand{\ins}[1]{{\text{вн. }#1}}
+\newcommand{\bnd}{\partial}
+\newcommand{\bndp}{\partial^+}
+\newcommand{\sym}{^*}
+
+\newcommand{\cvrg}[2]{\overset{#1}{\underset{#2}{\rightarrow}}}
+\newcommand{\uncvrg}[2]{\overset{#1}{\underset{#2}{\rightrightarrows}}}
+\newcommand{\uninscvrg}[2]{\uncvrg{\ins{#1}}{#2}}

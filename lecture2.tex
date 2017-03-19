@@ -1,7 +1,7 @@
 \section{Геометрические принципы ТФКП}
 
 \begin{definition}
-Пусть $a \in \CC, f \in \A(U'(a)), f(z) ≠ 0 \text{ в } U'(a)$. Тогда есть $ \res_a \frac{f'(z)}{f(z)} =: \Lres_a f$ — логарифмический вычет функции $f$ в точке $a$.
+Пусть $a \in \CC$, $f \in \A(U'(a))$, $f(z) ≠ 0$ в $U'(a)$. Тогда есть $ \res_a \frac{f'(z)}{f(z)} =: \Lres_a f$ — логарифмический вычет функции $f$ в точке $a$.
 \end{definition}
 
 \begin{example}
@@ -27,7 +27,7 @@
 \end{theorem}
 \begin{proof} ~\\
 	\begin{enumerate}
-		\item По теореме о нулях $f(z) = (z-a)^n g(z), g \in \A(U(a)), g ≠0 \text{ в } U(a)$.
+		\item По теореме о нулях $f(z) = (z-a)^n g(z)$, $g \in \A(U(a))$, $g ≠0$ в $U(a)$.
 		\[ f'(z) = n (z - a)^{n-1} g(z) + (z - a)^n g'(z) \]
 		\[ \frac{f'(z)}{f(z)} = \frac{n}{z - a} + \frac{g'(z)}{g(z)} \]
 		Но $\res \frac{g'(z)}{g(z)} = 0$ (т.к. она голоморфна), $ \res \frac{n}{z - a} = n$.
@@ -44,7 +44,7 @@
 	Тогда $\frac{1}{2 \pi \im} \int_{\bndp D} \frac{f'(z)}{f(z)} \dif z = N_D(f) - P_D(f)$.
 \end{theorem}
 \begin{proof}
-	По теореме Коши о вычетах $2 \pi \im(\sum \text{вычетов})$, далее по предыдущей теореме.
+	По теореме Коши о вычетах $2 \pi \im \left(\sum \text{вычетов} \right)$, далее по предыдущей теореме.
 \end{proof}
 
 \begin{definition}
