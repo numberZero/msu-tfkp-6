@@ -1,0 +1,48 @@
+\section{}
+\begin{theorem}[Принцип симметрии Римана-Шварца для конформных отображений]
+	Пусть $\gamma$ и $\Gamma$ — обобщённые окружности в $\CCC$, $\gamma_1 \subset \gamma$ и $\Gamma_1 \subset \Gamma$ — непустые связные интервалы. Пусть $D_1$ и $\Omega_1$ — области в $\CCC$, лежащие по одну сторону от $\gamma$ и $\Gamma$ соответственно, $\gamma_1 \subset \bnd D_1$ и $\Gamma_1 \subset \bnd \Omega_1$, $D_1\sym$ и $\Omega_1\sym$ — области, симметричные $D_1$ и $\Omega_1$ относительно $\gamma$ и $\Gamma$ соответственно; при этом множества $D = D_1 \sqcup \gamma_1 \sqcup D_1\sym$ и $\Omega = \Omega_1 \sqcup \Gamma_1 \sqcup \Omega_1\sym$ являются областями. Пусть $f_1: D_1 \overset{\text{на}}{\to} \Omega_1$ — конформный изоморфизм, причём $f_1$ непрерывным образом продолжается на $D_1 \sqcup \gamma_1$. Наконец, пусть $f_1(\gamma_1) = \Gamma_1$.
+	
+	Тогда $f_1$ (единственным образом) продолжается до конформного изоморфизма $f$ областей $D$ и $\Omega$ по формуле
+	\[ f(z) = \begin{cases}
+		f_1(z)	&, z \in D_1 \sqcup \gamma_1 \\
+		(f_1(z\sym))\sym	&, z \in D_1\sym
+	\end{cases} \]
+\end{theorem}
+\begin{proof}
+	Пусть $\Lambda_1$ и $\Lambda_2$ — ДЛО, отображающие $\gamma$ и $\Gamma$ на $\CRR$, $\widetilde M$ — образ множества $M$ при $\Lambda_1$ и $\Lambda_2$ соответственно. Положим $\widetilde{f_1}: \widetilde{D_1} \to \widetilde{\Omega_1}$, $\widetilde{f_1}(z) = (\Lambda_2 \circ f_1 \circ \Lambda_1^{-1})(z)$ — конформный изоморфизм. Достаточно доказать теорему для случая $\gamma = \Gamma = \CRR$ («забываем волны»). В этом случае при $z \in D_1\sym$ $f(z) = \overline{f_1(\overline z)}$.
+	\begin{exercise}
+		Отдельно рассмотреть случай $\infty \in D$ ($\infty \in \gamma_1$ или $\infty \in \Gamma_1$).
+	\end{exercise}
+	Далее считаем, что $\infty \notin \gamma_1, \Gamma_1$.
+	\begin{exercise}
+		Доказать конформность $f$ в $D_1\sym$ и непрерывность в $D$ (по определению производной или разложением в ряд Тейлора).
+	\end{exercise}
+	$f$ голоморфна в $D$ по теореме Морера: ...
+
+	Осталось доказать, что $f: \gamma_1 \to \Gamma_1$ взаимно-однозначна.
+	От противного: пусть не так, тогда, т. к. функция на $\gamma_1$ вещественна, то по теореме Лагранжа существует $a \in \gamma_1$ такая, что $f'(a) = 0$. Пусть $k \geq 2$ — порядок нуля $a$ для $f(z) - f(a)$. По доказанному в лемме \ref{lemma-zero-derivative}, существует голоморфная в окрестности $a$ функция $g$, такая, что $g(a) = 0$,  $g'(a) \neq 0$, $f(z) - f(a) = (g(z))^k$. Но $g$ сохраняет углы в $a$, а степень увеличивает их в $k$ раз. Противоречие с тем, что образ верхней полуокрестности $a$ лежит в $\Omega_1$.
+\end{proof}
+\begin{task}
+	Стереть разрезы.
+	
+	План: найти конформное $f_1: D_1 \overset{\text{на}}{\to} \Omega_1$, непрерывно продолжающееся на $D_1 \sqcup \gamma_1$, причём $f(\gamma_1) = \Gamma_1$. По принципу симметрии соответствующее $f$ будет давать ответ.
+\end{task}
+
+\begin{theorem}[Принцип симметрии для мероморфных функций]
+	Пусть $\gamma$, $\gamma_1$, $D_1$, $D_1\sym$, $D$ — как в предыдущей теореме. Пусть $f_1$ мероморфна в $D_1$ и непрерывна в $D_1 \sqcup \gamma_1$ в смысле $\CCC$, причём $f_1(\gamma_1)$ лежит в некоторой обобщённой окружности. Тогда $f_1$ (единственным образом) продолжается до функции $f$, мероморфной в $D$, по той же формуле.
+\end{theorem}
+
+\begin{theorem}[теорема Гурвица о нулях]
+	Пусть $D \subset \CC$ — область, $\set{f_n}_{n=1}^{+\infty} \subset \A(D)$, $f \in A(D)$, $f_n \uninscvrg{D}{n\to\infty} f$. Пусть $a \in D$ — ноль $f$ конечного порядка $k \geq 1$. Тогда $\exists \delta_0 > 0: \forall \delta \in \intoo{0, \delta_0} \exists N: \forall n > N N_{B(a, \delta)}(f_n) = k$.
+\end{theorem}
+\begin{proof}
+	Пусть $\delta_0 = \inf\set{\dist(a, \bnd D), \abs{a - a_j}}$, где $a_j$ — другие нули $f$. (Т. е. $D(a, \delta_0) \subset D$ и не содержит других нулей $f$). Обозначим $B_\delta = B(a, \delta)$, $\gamma_\delta = \bnd B_\delta$. На $\gamma_\delta$ функция $f$ непрерывна и отлична от 0, следовательно, $\mu = \min_{z \in \gamma_\delta} \abs{f(z)} > 0$. Тогда существует $N$: для всех $n > N$ выполнено $\norm{f_n - f}_{\gamma_\delta} = \max_{z \in \bnd \gamma_\delta} \abs{f_n(z) - f(z)} < \mu$.
+	Осталось применить теорему Руше с $g = f_n - f$ в $B_\delta$: $N_D(f_n) = N_D(f)$.
+\end{proof}
+
+\begin{theorem}[О сходящейся последовательности однолистных функций]
+	Пусть $D$ — область в $\CC$, $\set{f_n}_{n=1}^{+\infty} \subset \A(D)$ — однолистные в $D$ функции. Пусть $f_n \uninscvrg{D}{n\to\infty} f$. Тогда $f$ либо однолистна, либо постоянна.
+\end{theorem}
+\begin{proof}
+	От противного. Пусть $f \nequiv \const$, но не однолистна. Пусть $z_1, z_2 \in D$, $z_1 \neq z_2$, но $f(z_1) = f(z_2)$, и пусть $g_n(z) = f_n(z) - f_n(z_1)$, $g(z) = f(z) - f(z_1)$. Тогда $g_n \uninscvrg{D}{n \to \infty} g$, $g \nequiv \const$. Пусть $k \geq 1$ — порядок нуля $a = z_2$ для $g$. По предыдущей теореме существует $\delta > 0$ (в частности, $B_\delta = B(a, \delta) \not\ni z_1$) такое, что $N_{B_\delta}(g_n) = N_{B_\delta}(g) = k \geq 1$. Пусть $z_{2,n}$ — такой ноль, что $z_{2,n} \neq z_1$, и $g_n(z_{2, n}) = f_n(z_{2, n}) - f_n(z_{2, n}) = 0$ — противоречие с однолистностью $f_n$.
+\end{proof}
